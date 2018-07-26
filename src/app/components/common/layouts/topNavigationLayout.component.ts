@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { detectBody } from '../../../app.helpers';
 
 declare var jQuery:any;
 
 @Component({
   selector: 'topnavigationlayout',
-  templateUrl: 'topNavigationlayout.template.html',
+  templateUrl: 'topNavigationLayout.component.html',
   host: {
     '(window:resize)': 'onResize()'
   }
 })
-export class TopNavigationLayoutComponent {
+export class TopNavigationLayoutComponent implements OnInit{
 
   public ngOnInit():any {
     detectBody();

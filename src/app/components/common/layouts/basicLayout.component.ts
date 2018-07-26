@@ -5,7 +5,7 @@ declare var jQuery:any;
 
 @Component({
   selector: 'basic',
-  templateUrl: 'basicLayout.template.html',
+  templateUrl: 'basicLayout.component.html',
   host: {
     '(window:resize)': 'onResize()'
   }

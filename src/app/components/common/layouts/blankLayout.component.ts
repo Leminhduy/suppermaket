@@ -4,7 +4,7 @@ declare var jQuery: any;
 
 @Component({
     selector: 'blank',
-    templateUrl: 'blankLayout.template.html'
+    templateUrl: 'blankLayout.component.html'
 })
 export class BlankLayoutComponent {
 
