@@ -14,22 +14,30 @@ import {AppviewsModule} from './views/appviews/appviews.module';
 
 // App modules/components
 import {LayoutsModule} from './components/common/layouts/layouts.module';
+import {TopComponent} from './views/top/top.component';
+import {MessageComponent} from './views/message/message.component';
+import {ChatService} from './services/ChatService.services';
+
+// App service
+import {AuthGuard} from './config/Auth/auth.guard';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        DashboardsModule,
-        LayoutsModule,
-        AppviewsModule,
-        RouterModule.forRoot(ROUTES)
-    ],
-    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    TopComponent,
+    MessageComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    DashboardsModule,
+    LayoutsModule,
+    AppviewsModule,
+    RouterModule.forRoot(ROUTES)
+  ],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, ChatService, AuthGuard],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

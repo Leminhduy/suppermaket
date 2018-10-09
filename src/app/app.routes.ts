@@ -6,13 +6,16 @@ import {Dashboard3Component} from './views/dashboards/dashboard3.component';
 import {Dashboard4Component} from './views/dashboards/dashboard4.component';
 import {Dashboard41Component} from './views/dashboards/dashboard41.component';
 import {Dashboard5Component} from './views/dashboards/dashboard5.component';
-
+import {AuthGuard} from './config/Auth/auth.guard';
 import {StarterViewComponent} from './views/appviews/starterview.component';
 import {LoginComponent} from './views/appviews/login.component';
 
 import {BlankLayoutComponent} from './components/common/layouts/blankLayout.component';
 import {BasicLayoutComponent} from './components/common/layouts/basicLayout.component';
 import {TopNavigationLayoutComponent} from './components/common/layouts/topNavigationLayout.component';
+import {MainSystemComponent} from './components/common/layouts/mainSystem.component';
+import {TopComponent} from './views/top/top.component';
+import {MessageComponent} from './views/message/message.component';
 
 export const ROUTES: Routes = [
   // Main redirect
@@ -20,7 +23,7 @@ export const ROUTES: Routes = [
 
   // App views
   {
-    path: 'dashboards', component: BasicLayoutComponent,
+    path: 'dashboards', component: BasicLayoutComponent, canActivate: [AuthGuard],
     children: [
       {path: 'dashboard1', component: Dashboard1Component},
       {path: 'dashboard2', component: Dashboard2Component},
@@ -36,9 +39,15 @@ export const ROUTES: Routes = [
     ]
   },
   {
-    path: '', component: BasicLayoutComponent,
+    path: '', component: BasicLayoutComponent, canActivate: [AuthGuard],
     children: [
       {path: 'starterview', component: StarterViewComponent}
+    ]
+  },
+  {
+    path: 'thongbao', component: BasicLayoutComponent, canActivate: [AuthGuard],
+    children: [
+      {path: 'tb', component: MessageComponent}
     ]
   },
   {
@@ -47,7 +56,13 @@ export const ROUTES: Routes = [
       {path: 'login', component: LoginComponent},
     ]
   },
+  {
+    path: '', component: MainSystemComponent, canActivate: [AuthGuard],
+    children: [
+      {path: 'kenhnguoiban', component: TopComponent},
+    ]
+  },
 
   // Handle all other routes
-  {path: '**', redirectTo: 'starterview'}
+  {path: '**', redirectTo: 'kenhnguoiban'}
 ];

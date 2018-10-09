@@ -12,6 +12,7 @@ import {FooterComponent} from './../footer/footer.component';
 import {TopNavbarComponent} from './../topnavbar/topnavbar.component';
 import {TopNavigationNavbarComponent} from './../topnavbar/topnavigationnavbar.component';
 import {TopNavigationLayoutComponent} from './topNavigationLayout.component';
+import {MainSystemComponent} from './mainSystem.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {TopNavigationLayoutComponent} from './topNavigationLayout.component';
     NavigationComponent,
     TopNavigationLayoutComponent,
     TopNavbarComponent,
-    TopNavigationNavbarComponent
+    TopNavigationNavbarComponent,
+    MainSystemComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import {TopNavigationLayoutComponent} from './topNavigationLayout.component';
     NavigationComponent,
     TopNavigationLayoutComponent,
     TopNavbarComponent,
-    TopNavigationNavbarComponent
+    TopNavigationNavbarComponent,
+    MainSystemComponent
   ],
 })
 
